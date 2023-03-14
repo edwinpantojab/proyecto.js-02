@@ -1,0 +1,55 @@
+// El método bind() en JavaScript se utiliza para crear una nueva función con un valor de this preestablecido, y opcionalmente algunos argumentos también preestablecidos. El valor de this se refiere al objeto en el que se está ejecutando la función.
+
+// Aquí hay un ejemplo de cómo usar el método bind() para establecer el valor de this en una función:
+
+const myObj = {
+  message: 'Hola mundo',
+  printMessage() {
+    console.log(this.message);
+  }
+};
+
+const printMyMessage = myObj.printMessage.bind(myObj);
+printMyMessage(); // muestra "Hola mundo"
+
+// En este ejemplo, se crea un objeto myObj con una propiedad message y un método printMessage. El método printMessage utiliza this para acceder a la propiedad message del objeto myObj. Luego, se utiliza bind() para crear una nueva función printMyMessage que tiene un valor de this preestablecido en myObj. Cuando se llama a printMyMessage(), muestra "Hola mundo" en la consola.
+
+//Aquí hay otro ejemplo de cómo utilizar bind() para preestablecer algunos argumentos de una función:
+
+function multiply(x, y) {
+    return x * y;
+  }
+  
+  const double = multiply.bind(null, 2);
+  console.log(double(5)); // muestra 10
+
+//   En este ejemplo, se define una función multiply que toma dos argumentos x e y y devuelve su producto. Luego, se utiliza bind() para crear una nueva función double que tiene un valor preestablecido de 2 para el argumento x. Cuando se llama a double(5), devuelve el resultado de multiplicar 2 y 5, que es 10.
+
+// En resumen, el método bind() en JavaScript se utiliza para crear una nueva función con un valor de this y/o algunos argumentos preestablecidos. Esto puede ser útil para crear funciones reutilizables con diferentes valores de this y/o argumentos, o para vincular funciones a eventos específicos.
+
+'Bind';
+
+var instructor = {//objeto instructor 
+   nombre: 'Franco',//parametros del objeto
+   edad: 25,
+};
+
+var alumno = {//objeto alumno
+   nombre: 'Juan',//parametro del objeto
+   curso: 'FullStack',
+};
+
+function getNombre() {
+  return this.nombre;}
+
+/*
+  Ejercicio 3
+
+  IMPORTANTE: no modificar el código de arriba (variables instructor y alumno, y función getNombre)
+  Usando el método bind() guardar, en las dos variables declaradas a continuación, dos funciones que actúen como getNombre pero retornen el nombre del instructor y del alumno, respectivamente.
+*/
+
+let getNombreInstructor = getNombre.bind(instructor);//ya esta la variable donde se guardara el objeto y con bind invoco el objeto de la variable instructor 
+let getNombreAlumno = getNombre.bind(alumno);//ya esta la variable donde se guardara el objeto y con bind invoco el objeto de la variable alumno
+// console.log(getNombreInstructor(instructor));
+// console.log(getNombreAlumno(alumno));
